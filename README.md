@@ -29,7 +29,7 @@ Our first version focuses on the **Book of Daniel** 📘 with engaging questions
 | `Lombok`            | 1.18.x          | Less boilerplate, cleaner code       |
 
 
-🙏 Special Thanks
+## 🙏 Special Thanks
 
 To CASA DE ADORACIÓN for inspiring this app,
 and to all the young people passionate about studying the Word of God in a fun, interactive way. ✝️
