@@ -37,4 +37,5 @@ public class QuestionController {
     public ResponseEntity<List<Question>> getAllQuestion() {
         return ResponseEntity.ok(implServiceQuestion.getALlQuestions());
     }
+
 }
