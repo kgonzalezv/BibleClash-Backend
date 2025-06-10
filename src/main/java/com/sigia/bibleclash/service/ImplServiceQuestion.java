@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ImplServiceQuestion implements IQuestion {
@@ -42,7 +43,8 @@ public class ImplServiceQuestion implements IQuestion {
 
     @Transactional
     @Override
-    public Question getQuestionById(Long id) {
-        return em.find(Question.class,id);
+    public Optional<Question> getQuestionById(Long id) {
+        Question question= em.find(Question.class,id);
+        return Optional.ofNullable(question);
     }
 }

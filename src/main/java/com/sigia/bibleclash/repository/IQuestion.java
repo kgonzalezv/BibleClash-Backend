@@ -4,6 +4,7 @@ import com.sigia.bibleclash.modelo.Question;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface IQuestion {
@@ -12,6 +13,6 @@ public interface IQuestion {
    List<Question> getALlQuestions();
    void deleteQuestionById(Long id);
    void update(Long id, String name);
-   Question getQuestionById(Long id);
+   Optional<Question> getQuestionById(Long id);
 
 }

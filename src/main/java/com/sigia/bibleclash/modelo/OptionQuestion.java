@@ -1,5 +1,7 @@
 package com.sigia.bibleclash.modelo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,16 +12,15 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "OPTION_QUESTION")
-public class Option {
+public class OptionQuestion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String versiculo;
-    private Boolean isCorret;
-
-    @ManyToOne
-    @JoinColumn(name = "question_id" )
+    @JsonProperty("isCorrect")
+    private Boolean isCorrect;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "question_id", nullable = false)
     private Question question;
 
     public Question getQuestion() {
@@ -30,11 +31,21 @@ public class Option {
         this.question = question;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Boolean getCorrect() {
+        return isCorrect;
     }
 
-    public Long getId() {
-        return id;
+    public void setCorrect(Boolean correct) {
+        isCorrect = correct;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
 }
